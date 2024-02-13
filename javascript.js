@@ -6,8 +6,7 @@ let options = ["Rock", "Paper","Scissors"];
 function getComputerChoice(){
     let choice = options[Math.floor(Math.random() * options.length)];
     choice = choice.toLowerCase();
-    console.log(choose);
-
+    console.log(choice);
     return choice;
 }
 
