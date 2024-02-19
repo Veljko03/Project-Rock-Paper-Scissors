@@ -23,7 +23,7 @@ btnRock.addEventListener('click', () => {
     const para = document.createElement("p");
     para.textContent = "You choosed: ROCK";
     const para2 = document.createElement("p");
-    para2.textContent = "Computer: ";
+    para2.textContent = "Computer: "+cc;
     playerr.appendChild(para);
     computer.appendChild(para2);
 
@@ -35,6 +35,20 @@ btnRock.addEventListener('click', () => {
     paraMessage.textContent =    playGame();
     message.appendChild(paraMessage);
     
+    if(playedGames ==5){
+        const btn = document.createElement("button");
+        btn.textContent="PLay again";
+
+        message.appendChild(btn);
+
+        btn.addEventListener('click', () =>{
+        window.location.reload();
+        
+
+
+        });
+        
+    }
     
 });
 
@@ -44,7 +58,7 @@ btnPaper.addEventListener('click', () => {
     const para = document.createElement("p");
     para.textContent = "You choosed: paper";
     const para2 = document.createElement("p");
-    para2.textContent = "Computer: ";
+    para2.textContent = "Computer: " + cc;
     playerr.appendChild(para);
     computer.appendChild(para2);
     const paraScore = document.createElement("p");
@@ -54,6 +68,16 @@ btnPaper.addEventListener('click', () => {
     const paraMessage = document.createElement("h2");
     paraMessage.textContent =    playGame();
     message.appendChild(paraMessage);
+    if(playedGames ==5){
+        const btn = document.createElement("button");
+        btn.textContent="PLay again";
+
+        message.appendChild(btn);
+
+        btn.addEventListener('click', () =>{
+            window.location.reload();
+        });
+    }
 });
 
 btnScissors.addEventListener('click', () => {
@@ -63,7 +87,7 @@ btnScissors.addEventListener('click', () => {
     const para = document.createElement("p");
     para.textContent = "You choosed: scissors";
     const para2 = document.createElement("p");
-    para2.textContent = "Computer: ";
+    para2.textContent = "Computer: " + cc;
     playerr.appendChild(para);
     computer.appendChild(para2);
 
@@ -76,15 +100,29 @@ btnScissors.addEventListener('click', () => {
     const paraMessage = document.createElement("h2");
     paraMessage.textContent =    playGame();
     message.appendChild(paraMessage);
+    
+    if(playedGames ==5){
+        const btn = document.createElement("button");
+        btn.textContent="PLay again";
+
+        message.appendChild(btn);
+
+        btn.addEventListener('click', () =>{
+            window.location.reload();
+
+
+        });
+    }
 });
 
 
 let options = ["Rock", "Paper","Scissors"];
-
+let cc;
 function getComputerChoice(){
     let choice = options[Math.floor(Math.random() * options.length)];
     choice = choice.toLowerCase();
     console.log(choice);
+    cc=choice;
     return choice;
 }
 
@@ -101,12 +139,15 @@ function player(option){
 
 
 
+
 function playGame(){
     
     if(playedGames ==5){
         document.getElementById("rock").setAttribute("disabled", true);
         document.getElementById("paper").setAttribute("disabled", true);
         document.getElementById("scissors").setAttribute("disabled", true);
+
+        
 
         if(playerWon == computerWon){
            return "Its draw";
@@ -116,6 +157,8 @@ function playGame(){
         } else{
             return  "You lose!";
         }
+
+       
     }
    
   

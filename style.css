@@ -53,4 +53,13 @@ button{
     align-items: center;
     
 }
+.final{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 50px;
+    width: 600px;
+
+    
+}
 
