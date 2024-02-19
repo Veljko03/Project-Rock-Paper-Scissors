@@ -1,4 +1,66 @@
 
+const btnRock = document.getElementById("rock");
+const btnPaper = document.getElementById("paper");
+const btnScissors = document.getElementById("scissors");
+
+const playerr = document.getElementById("ply");
+const score = document.getElementById("str");
+const computer = document.getElementById("com");
+let playerWon =0;
+let computerWon =0;
+let playedGames =0;
+
+
+
+btnRock.addEventListener('click', () => {
+    playRound(player("rock"),getComputerChoice());
+    playedGames++;
+    
+    const para = document.createElement("p");
+    para.textContent = "You choosed: ROCK";
+    const para2 = document.createElement("p");
+    para2.textContent = "Computer: ";
+    playerr.appendChild(para);
+    computer.appendChild(para2);
+
+    const paraScore = document.createElement("p");
+    paraScore.textContent = playerWon + " : "+ computerWon;
+    score.appendChild(paraScore);
+    
+    playGame();
+});
+
+btnPaper.addEventListener('click', () => {
+    playRound(player("paper"),getComputerChoice());
+    playedGames++;
+    const para = document.createElement("p");
+    para.textContent = "You choosed: paper";
+    const para2 = document.createElement("p");
+    para2.textContent = "Computer: ";
+    playerr.appendChild(para);
+    computer.appendChild(para2);
+    const paraScore = document.createElement("p");
+    paraScore.textContent = playerWon + " : "+ computerWon;
+    score.appendChild(paraScore);
+    playGame();
+});
+
+btnScissors.addEventListener('click', () => {
+    playRound(player("scissors"),getComputerChoice());
+    playedGames++;
+   
+    const para = document.createElement("p");
+    para.textContent = "You choosed: scissors";
+    const para2 = document.createElement("p");
+    para2.textContent = "Computer: ";
+    playerr.appendChild(para);
+    computer.appendChild(para2);
+
+    const paraScore = document.createElement("p");
+    paraScore.textContent = playerWon + " : "+ computerWon;
+    score.appendChild(paraScore);
+    playGame();
+});
 
 
 let options = ["Rock", "Paper","Scissors"];
@@ -11,35 +73,34 @@ function getComputerChoice(){
 }
 
 
-function player(){
-    let choose = prompt("Choose your option: Rock/Paper/Scissors");
-    choose = choose.toLowerCase();
+function player(option){
+    let choose = option;
+    
     console.log(choose);
     
     return choose;
 }
 
 
-let playerWon =0;
-let computerWon =0;
 
 
 
 function playGame(){
-    playRound(player(),getComputerChoice());
-    playRound(player(),getComputerChoice());
-    playRound(player(),getComputerChoice());
-    playRound(player(),getComputerChoice());
-    playRound(player(),getComputerChoice());
-    if(playerWon == computerWon){
-        console.log("Its draw");
+    
+    if(playedGames ==5){
+        if(playerWon == computerWon){
+            console.log("Its draw");
+        }
+        else if(playerWon > computerWon){
+            console.log("You won!");
+        } else{
+            console.log("You lose!");
+    
+        }
     }
-    else if(playerWon > computerWon){
-        console.log("You won!");
-    } else{
-        console.log("You lose!");
-
-    }
+   
+  
+   
    
 
     
@@ -101,5 +162,5 @@ function playRound(playerSelection,computerSelection){
 }
 
 
-playGame();
+
 

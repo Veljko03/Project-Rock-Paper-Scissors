@@ -32,6 +32,7 @@ button{
 }
 .container{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -45,7 +46,7 @@ button{
     gap: 20px;
     background-color: lightgreen;
 }
-.player, .score, .computer{
+.playerr, .score, .computer{
     display: flex;
     flex-direction: column;
     width: 200px;
