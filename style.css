@@ -1,0 +1,55 @@
+body{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.choose{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    background-color: #3882f6;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #f9faf8;
+    border-radius: 8px;
+    width: 150px;
+    height: 40px;
+    border-color: #e5e7eb;
+}
+.buttons{
+    display: flex;
+    gap: 15px;
+
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.results{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    width: 600px;
+    height: 500px;
+    gap: 20px;
+    background-color: lightgreen;
+}
+.player, .score, .computer{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-items: center;
+    
+}
+
