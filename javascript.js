@@ -6,6 +6,10 @@ const btnScissors = document.getElementById("scissors");
 const playerr = document.getElementById("ply");
 const score = document.getElementById("str");
 const computer = document.getElementById("com");
+
+const message = document.getElementById("final");
+
+
 let playerWon =0;
 let computerWon =0;
 let playedGames =0;
@@ -26,8 +30,12 @@ btnRock.addEventListener('click', () => {
     const paraScore = document.createElement("p");
     paraScore.textContent = playerWon + " : "+ computerWon;
     score.appendChild(paraScore);
+
+    const paraMessage = document.createElement("h2");
+    paraMessage.textContent =    playGame();
+    message.appendChild(paraMessage);
     
-    playGame();
+    
 });
 
 btnPaper.addEventListener('click', () => {
@@ -42,7 +50,10 @@ btnPaper.addEventListener('click', () => {
     const paraScore = document.createElement("p");
     paraScore.textContent = playerWon + " : "+ computerWon;
     score.appendChild(paraScore);
-    playGame();
+    
+    const paraMessage = document.createElement("h2");
+    paraMessage.textContent =    playGame();
+    message.appendChild(paraMessage);
 });
 
 btnScissors.addEventListener('click', () => {
@@ -59,7 +70,12 @@ btnScissors.addEventListener('click', () => {
     const paraScore = document.createElement("p");
     paraScore.textContent = playerWon + " : "+ computerWon;
     score.appendChild(paraScore);
-    playGame();
+    
+    
+
+    const paraMessage = document.createElement("h2");
+    paraMessage.textContent =    playGame();
+    message.appendChild(paraMessage);
 });
 
 
@@ -88,14 +104,17 @@ function player(option){
 function playGame(){
     
     if(playedGames ==5){
+        document.getElementById("rock").setAttribute("disabled", true);
+        document.getElementById("paper").setAttribute("disabled", true);
+        document.getElementById("scissors").setAttribute("disabled", true);
+
         if(playerWon == computerWon){
-            console.log("Its draw");
+           return "Its draw";
         }
         else if(playerWon > computerWon){
-            console.log("You won!");
+            return "You won!";
         } else{
-            console.log("You lose!");
-    
+            return  "You lose!";
         }
     }
    
